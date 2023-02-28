@@ -35,6 +35,8 @@ buys.forEach((item, index) => {
         clearTimeout(timer)
         money.innerText = prices[index]
         mask.style.display = 'flex'
+        tip.style.display = 'block'
+        success.style.display = 'none'
         
     })
 })
