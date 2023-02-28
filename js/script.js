@@ -19,3 +19,36 @@ setInterval(() => {
     changeStyle(i)
     i++
 }, 3000)
+const prices = [30, 10, 25, 50, 30]
+
+const buys = document.querySelectorAll('.buy')
+const money = document.querySelector('.money')
+const mask = document.querySelector('.mask')
+const tip = document.querySelector('.tip')
+const success = document.querySelector('.success')
+const cancel = document.querySelector('.cancel')
+const confirmBtn = document.querySelector('.confirm')
+
+let timer = null
+buys.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        clearTimeout(timer)
+        money.innerText = prices[index]
+        mask.style.display = 'flex'
+        
+    })
+})
+
+cancel.addEventListener('click', () => {
+    mask.style.display = 'none'
+})
+
+confirmBtn.addEventListener('click', () => {
+    tip.style.display = 'none'
+    success.style.display = 'block'
+    timer = setTimeout(() => {
+        mask.style.display = 'none'
+    }, 600)
+})
+
+
